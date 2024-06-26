@@ -19,6 +19,6 @@ class AuthorController extends Controller
         ]);
 
         Author::create($data);
-        return redirect()->route('book.index');
+        return redirect()->route('book.create');
     }
 }

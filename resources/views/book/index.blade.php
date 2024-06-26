@@ -6,7 +6,7 @@
                 <div>
                     <a href="{{ route('book.show', $book->id) }}"
                        class="text-decoration-none text-dark">
-                        {{ $book->id }}. {{ $book->title }}
+                        {{ $loop->iteration }}. {{ $book->title }}
                     </a>
                 </div>
             @endforeach
