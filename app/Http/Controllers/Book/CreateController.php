@@ -7,9 +7,9 @@ use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
-class CreateController extends Controller
+class CreateController extends BaseController
 {
-    public function __invoke(array $data)
+    public function __invoke()
     {
         $authors = Author::all();
         return view('book.create', compact('authors'));

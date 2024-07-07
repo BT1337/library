@@ -7,7 +7,7 @@ use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
-class ShowController extends Controller
+class ShowController extends BaseController
 {
     public function __invoke(Book $book)
     {

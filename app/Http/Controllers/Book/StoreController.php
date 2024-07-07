@@ -3,27 +3,19 @@
 namespace App\Http\Controllers\Book;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Book\StoreRequest;
 use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
-    public function __invoke()
+    public function __invoke(StoreRequest $request)
     {
-        $data = request()->validate([
-            'title' => 'string',
-            'year' => 'integer',
-            'description' => 'string',
-            'isbn' => 'string',
-            'image' => 'string',
-            'authors' => ''
-        ]);
-        $authors = $data['authors'];
-        unset($data['authors']);
+        $data = $request->validated();
 
-        $book = Book::create($data);
-        $book->authors()->attach($authors);
+        $this->service->store($data);
+
         return redirect()->route('book.index');
     }
 }
